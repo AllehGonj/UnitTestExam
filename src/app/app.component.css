@@ -1,0 +1,25 @@
+main {
+  background-color: #fff;
+}
+
+#title {
+  font-size: 28px;
+  color: rgb(1, 44, 61);
+  font-weight: 700;
+  margin: 10px 0px 5px;
+}
+
+#content {
+  width: 100%;
+  min-height: 100%;
+  margin-top: auto;
+  padding: 40px 0;
+}
+
+#component {
+  max-width: 70%;
+}
+
+#welcome > img {
+  height: 25rem;
+}

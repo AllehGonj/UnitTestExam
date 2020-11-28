@@ -1,0 +1,38 @@
+img {
+  height: 20rem;
+}
+
+h3 {
+  font-size: 18px;
+  color: rgb(1, 44, 61);
+  font-weight: 700;
+  margin: 10px 0 5px;
+}
+
+.data-container {
+  display: inline-grid;
+  grid-template-columns: auto auto auto;
+}
+
+.general-data-item > h4 {
+  font-size: 16px;
+  color: rgb(1, 44, 61);
+  font-weight: 700;
+  margin: 10px 0 5px;
+}
+
+#tab-content div {
+  display: none;
+}
+
+#tab-content div.is-active {
+  display: block;
+}
+
+hr {
+  background-color: rgba(1, 44, 61, 0.25);
+}
+
+.card-content {
+  padding: 0.5rem;
+}

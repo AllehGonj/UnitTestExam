@@ -1,0 +1,20 @@
+<main class="is-flex is-flex-direction-column is-justify-content-center">
+  <section class="has-text-centered my-6">
+    <h1 id="title">{{ title }}</h1>
+    <p *ngFor="let member of groupMembers">{{ member }}</p>
+  </section>
+  <div id="primary-buttons" class="is-flex is-justify-content-center mt-3 mb-6 mx-6 px-6">
+    <button class="button is-primary mx-6" (click)="option = 'calculator'">Calculadora</button>
+    <button class="button is-primary mx-6" (click)="option = 'query'">Consulta</button>
+  </div>
+</main>
+<section id="content" class="is-flex is-justify-content-center">
+  <div id="component">
+    <app-calculator *ngIf="option === 'calculator'"></app-calculator>
+    <app-service-query *ngIf="option === 'query'"></app-service-query>
+  </div>
+  <div id="welcome" *ngIf="!option">
+    <h2 class="has-text-centered">Selecciona una opción y comienza a descubrir.</h2>
+    <img class="my-6" src="assets/images/reading-corner-colour.svg" alt="reading">
+  </div>
+</section>

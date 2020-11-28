@@ -1,0 +1,17 @@
+#title {
+  font-size: 20px;
+  color: rgb(1, 44, 61);
+  font-weight: 700;
+  margin: 10px 0 5px;
+}
+
+hr {
+  background-color: rgb(243, 242, 245);
+}
+
+#result > p {
+  font-size: 28px;
+  color: rgb(1, 44, 61);
+  font-weight: 700;
+  margin: 10px 0 5px;
+}

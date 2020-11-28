@@ -1,0 +1,47 @@
+<section class="has-text-centered">
+  <h2 id="title">¡Calculadora!</h2>
+  <span>Ingresa dos numeros, selecciona una operación y conoce el resultado.</span>
+  <hr>
+
+  <div class="has-text-justified" [formGroup]="calculatorForm">
+    <div class="field">
+      <label for="firstOperating" class="label">Operando 1</label>
+      <div class="control">
+        <input
+          id="firstOperating"
+          class="input is-rounded form-control"
+          type="number"
+          formControlName="firstOperating"
+          placeholder="0"
+          required
+        >
+      </div>
+    </div>
+    <div class="field">
+      <label for="secondOperating" class="label">Operando 2</label>
+      <div class="control">
+        <input
+          id="secondOperating"
+          class="input is-rounded form-control"
+          type="number"
+          formControlName="secondOperating"
+          placeholder="0"
+          required
+        >
+      </div>
+    </div>
+  </div>
+
+  <div class="buttons mt-4 is-flex is-justify-content-center">
+    <button class="button is-primary" (click)="performOperation('addition')">+</button>
+    <button class="button is-link" (click)="performOperation('subtraction')">-</button>
+    <button class="button is-info" (click)="performOperation('multiplication')">x</button>
+    <button class="button is-success" (click)="performOperation('division')">/</button>
+  </div>
+
+  <div id="result" *ngIf="calculationResult" class="my-6">
+    <h3>Tu resultado es:</h3>
+    <p>{{ calculationResult }}</p>
+  </div>
+</section>
+

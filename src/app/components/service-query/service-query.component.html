@@ -1,0 +1,132 @@
+<section class="is-flex is-justify-content-center is-flex-direction-column has-text-centered">
+  <img src="assets/images/student-colour.svg" alt="student" class="mb-6">
+  <p>{{ covidInformation.description }}</p>
+
+  <div class="data-container my-6" *ngIf="covidInformation">
+    <div class="general-data-item">
+      <h4>Casos confirmados</h4>
+      <p>{{ covidInformation.confirmedCases }}</p>
+    </div>
+    <div class="general-data-item">
+      <h4>Muertes</h4>
+      <p>{{ covidInformation.deaths }}</p>
+    </div>
+    <div class="general-data-item">
+      <h4>Recuperados</h4>
+      <p>{{ covidInformation.recovered }}</p>
+    </div>
+  </div>
+
+  <div *ngIf="covidInformation.percentages">
+    <article id="tabs" class="panel is-primary">
+      <p class="panel-heading">
+        Porcentajes
+      </p>
+      <div class="panel-block is-justify-content-center">
+        <p>{{ covidInformation.percentages?.description }}</p>
+      </div>
+      <p class="panel-tabs">
+        <a class="is-active" data-tab="1">Pacientes infectados</a>
+        <a data-tab="2">Casos cerrados</a>
+      </p>
+
+      <article id="tab-content">
+        <div class="is-active" data-content="1">
+          <p class="panel-block">
+            {{ covidInformation.percentages.patientsInfected.description }}
+          </p>
+          <p class="panel-block">
+            <strong>Pacientes activos:&nbsp;</strong>
+            {{ covidInformation.percentages.patientsInfected.activePatients }}
+          </p>
+          <p class="panel-block">
+            <strong>Pacientes en condicion media:&nbsp;</strong>
+            {{ covidInformation.percentages.patientsInfected.patientsInMidCondition }}
+          </p>
+          <p class="panel-block">
+            <strong>Porcentaje de condicion media:&nbsp;</strong>
+            {{ covidInformation.percentages.patientsInfected.percentageMidCondition }} %
+          </p>
+          <p class="panel-block">
+            <strong>Pacientes en condicion critica:&nbsp;</strong>
+            {{ covidInformation.percentages.patientsInfected.patientsInCritialCondition }}
+          </p>
+          <p class="panel-block">
+            <strong>Porcentaje de condicion critica:&nbsp;</strong>
+            {{ covidInformation.percentages.patientsInfected.percentageCritialCondition }} %
+          </p>
+        </div>
+        <div data-content="2">
+          <p class="panel-block">
+            {{ covidInformation.percentages.closedCases.description }}
+          </p>
+          <p class="panel-block">
+            <strong>Casos cerrados:&nbsp;</strong>
+            {{ covidInformation.percentages.closedCases.closedCases }}
+          </p>
+          <p class="panel-block">
+            <strong>Pacientes recuperados:&nbsp;</strong>
+            {{ covidInformation.percentages.closedCases.patientsRecovered }}
+          </p>
+          <p class="panel-block">
+            <strong>Porcentaje de recuperados:&nbsp;</strong>
+            {{ covidInformation.percentages.closedCases.percentageRecovered }} %
+          </p>
+          <p class="panel-block">
+            <strong>Muertes:&nbsp;</strong>
+            {{ covidInformation.percentages.closedCases.deaths }}
+          </p>
+          <p class="panel-block">
+            <strong>Porcentaje de muertes:&nbsp;</strong>
+            {{ covidInformation.percentages.closedCases.percentageDeaths }} %
+          </p>
+        </div>
+      </article>
+    </article>
+  </div>
+
+  <hr class="mt-6">
+
+  <h3 class="mt-4">Datos por espacios geograficos</h3>
+  <div>
+    <div class="columns is-multiline my-6">
+      <div class="column is-4" *ngFor="let card of getCovidLocations()">
+        <div class="card">
+          <header class="card-header">
+            <p class="card-header-title">
+              {{ card.information.totalCases }}
+            </p>
+          </header>
+          <div class="card-content">
+            <div class="content">
+              <p class="panel-block">
+                <strong>Nuevos casos hoy:&nbsp;</strong>
+                {{ card.information.newTodayCases }}
+              </p>
+              <p class="panel-block">
+                <strong>Total de muertes:&nbsp;</strong>
+                {{ card.information.totalDeaths }}
+              </p>
+              <p class="panel-block">
+                <strong>Nuevas muertes hoy:&nbsp;</strong>
+                {{ card.information.newTodayDeaths }}
+              </p>
+              <p class="panel-block">
+                <strong>Total de recuperados:&nbsp;</strong>
+                {{ card.information.totalRecovered }}
+              </p>
+              <p class="panel-block">
+                <strong>Total de casos activos:&nbsp;</strong>
+                {{ card.information.totalActiveCases }}
+              </p>
+              <p class="panel-block">
+                <strong>Total de casos activos criticos:&nbsp;</strong>
+                {{ card.information.totalCriticalActiveCases }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
