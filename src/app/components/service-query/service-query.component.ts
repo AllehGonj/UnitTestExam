@@ -1,15 +1,14 @@
-import {AfterViewInit, ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {AfterViewChecked, AfterViewInit, ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {CovidInformation} from '../../../shared/models/covid/covidInformation.model';
 import {CovidService} from '../../providers/services/covid-tracker/covid.service';
 import {CovidCountries} from '../../../shared/models/covid/covidCountries.model';
-import {async, Observable} from 'rxjs';
 
 @Component({
   selector: 'app-service-query',
   templateUrl: './service-query.component.html',
   styleUrls: ['./service-query.component.css']
 })
-export class ServiceQueryComponent implements OnInit, AfterViewInit {
+export class ServiceQueryComponent implements OnInit, AfterViewChecked {
 
   covidInformation = {} as CovidInformation;
 
@@ -25,7 +24,7 @@ export class ServiceQueryComponent implements OnInit, AfterViewInit {
     this.getCovidLocations();
   }
 
-  ngAfterViewInit(): void {
+  ngAfterViewChecked(): void {
     this.tabs = document.querySelectorAll('.panel-tabs a');
     this.content = document.querySelectorAll('#tab-content div');
     this.initTabs();

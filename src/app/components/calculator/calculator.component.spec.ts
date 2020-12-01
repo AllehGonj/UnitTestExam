@@ -33,38 +33,34 @@ describe('CalculatorComponent', () => {
   // FUNCTIONAL TESTS
 
   it('should perform an addition', () => {
-    const EXPECTED = 12;
-    component.firstOperatingValue = 10;
-    component.secondOperatingValue = 2;
+    const EXPECTED = '12';
 
-    const value: number = component.addition();
+    const value: string = component.addition('10', '2');
     expect(value).toEqual(EXPECTED);
   });
 
   it('should perform a subtraction', () => {
-    const EXPECTED = 12;
-    component.firstOperatingValue = 10;
-    component.secondOperatingValue = 2;
+    const EXPECTED = '8';
 
-    const value: number = component.addition();
+    const value: string = component.subtraction('10', '2');
     expect(value).toEqual(EXPECTED);
   });
 
   it('should multiply', () => {
-    const EXPECTED = 12;
-    component.firstOperatingValue = 10;
-    component.secondOperatingValue = 2;
+    const EXPECTED = '20';
+    component.firstOperatingValue = '10';
+    component.secondOperatingValue = '2';
 
-    const value: number = component.addition();
+    const value: string = component.multiplication();
     expect(value).toEqual(EXPECTED);
   });
 
   it('should perform a division', () => {
-    const EXPECTED = 12;
-    component.firstOperatingValue = 10;
-    component.secondOperatingValue = 2;
+    const EXPECTED = 5;
+    component.firstOperatingValue = '10';
+    component.secondOperatingValue = '2';
 
-    const value: number = component.addition();
+    const value: number = component.division();
     expect(value).toEqual(EXPECTED);
   });
 });

@@ -1,6 +1,6 @@
 <section class="has-text-centered">
   <h2 id="title">¡Calculadora!</h2>
-  <span>Ingresa dos numeros, selecciona una operación y conoce el resultado.</span>
+  <span>Ingresa dos numeros postivos, selecciona una operación y conoce el resultado.</span>
   <hr>
 
   <div class="has-text-justified" [formGroup]="calculatorForm">
@@ -10,9 +10,11 @@
         <input
           id="firstOperating"
           class="input is-rounded form-control"
-          type="number"
+          type="text"
           formControlName="firstOperating"
           placeholder="0"
+          maxlength="10"
+          (keypress)="handleKeyboardNumericEvent($event.which)"
           required
         >
       </div>
@@ -23,9 +25,11 @@
         <input
           id="secondOperating"
           class="input is-rounded form-control"
-          type="number"
+          type="text"
           formControlName="secondOperating"
           placeholder="0"
+          maxlength="10"
+          (keypress)="handleKeyboardNumericEvent($event.which)"
           required
         >
       </div>
@@ -33,10 +37,10 @@
   </div>
 
   <div class="buttons mt-4 is-flex is-justify-content-center">
-    <button class="button is-primary" (click)="performOperation('addition')">+</button>
-    <button class="button is-link" (click)="performOperation('subtraction')">-</button>
-    <button class="button is-info" (click)="performOperation('multiplication')">x</button>
-    <button class="button is-success" (click)="performOperation('division')">/</button>
+    <button class="button is-primary" (click)="performOperation('addition')" [disabled]="calculatorForm.invalid">+</button>
+    <button class="button is-link" (click)="performOperation('subtraction')" [disabled]="calculatorForm.invalid">-</button>
+    <button class="button is-info" (click)="performOperation('multiplication')" [disabled]="calculatorForm.invalid">x</button>
+    <button class="button is-success" (click)="performOperation('division')" [disabled]="calculatorForm.invalid">/</button>
   </div>
 
   <div id="result" *ngIf="calculationResult" class="my-6">
